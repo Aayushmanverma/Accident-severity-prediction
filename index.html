@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      background-image: url('acci.jpeg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: cover;
+    }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ind.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="scrollable-container">
+        <div class="Accident-form-container">
+          <div class="form-container">
+            <div class='input-from-text'> Enter Details </div>
+            <form class="Accident-form">
+
+                <div class="form-input">
+                    <label for="Did_Police_Officer_Attend">Did Police Officer Attend Scene of Accident</label>
+                    <input type="text" class="form-control" name="Did_Police_Officer_Attend" value="1" id="Did_Police_Officer_Attend">
+                </div>
+
+                <div class="form-input">
+                    <label for="Age_of_Driver">Age of Driver</label>
+                    <input type="text" class="form-control" name="Age_of_Driver" value="34" id="age_of_driver">
+                </div>
+
+                <div class="form-input">
+                    <label for="Vehicle_Type">Vehicle Type</label>
+			        <select class="form-control" id="vehicle_type" name="Weather_Conditions">
+		       		<option value="1">1 : Pedal cycle</option>
+			        <option value="2">2 : Motorcycle 50cc and under</option>
+			        <option value="3">3 : Motorcycle 125cc and unders</option>
+			        <option value="4">4 : Motorcycle over 125cc and up to 500cc</option>
+			        <option value="5">5 : Motorcycle over 500cc</option>
+			        <option value="8">8 : Taxi/Private hire car</option>
+			        <option value="9">9 : Car</option>
+			        <option value="10">10 : Minibus (8 - 16 passenger seats)</option>
+			        <option value="11">11 : Bus or coach (17 or more pass seats)</option>
+			        <option value="18">18 : Tram</option>
+			        <option value="20">20 : Truck(Goods)</option>
+			        <option value="23">23 : Electric motorcycle</option>			        
+			      </select>
+                </div>
+
+                <div class="form-input">
+                    <label for="Age_of_Vehicle">Age of Vehicle</label>
+			        <input type="text" class="form-control" name="Age_of_Vehicle" value="10" id="age_of_vehicle">
+                </div>
+
+                <div class="form-input">
+                    <label for="Engine_Capacity_CC">Engine Capacity in CC</label>
+			        <input type="text" class="form-control" name="Engine_Capacity_CC" value="8300.0" id="engine_cc">
+                </div>
+
+                <div class="form-input">
+                    <label for="Day_of_Week">Day of Week</label>
+
+			      <select class="form-control" id="day">
+		       		<option value="1">1 : Sunday</option>
+			        <option value="2">2 : Monday</option>
+			        <option value="3">3 : Tuesday</option>
+			        <option value="4">4 : Wednesday</option>
+			        <option value="5">5 : Thursday</option>
+			        <option value="6">6 : Friday</option>
+			        <option value="7">7 : Saturday</option>
+			      </select>
+                </div>
+
+                <div class="form-input">
+                    <label for="Weather_Conditions">Weather Conditions</label>
+			        <select class="form-control" id="weather" name="Weather_Conditions">
+		       		<option value="1">1 : Fine no high winds</option>
+			        <option value="2">2 : Raining no high winds</option>
+			        <option value="3">3 : Snowing no high winds</option>
+			        <option value="4">4 : Fine + high winds</option>
+			        <option value="5">5 : Raining + high winds</option>
+			        <option value="6">6 : Snowing + high winds</option>
+			        <option value="7">7 : Fog or mist</option>
+			      </select>
+                </div>
+
+                <div class="form-input">
+                    <label for="Light_Conditions">Light Conditions</label>
+			        <select class="form-control" name="Light_Conditions" id="light">
+		       		<option value="1">1 : Daylight</option>
+			        <option value="4">4 : Darkness - lights lit</option>
+			        <option value="5">5 : Darkness - lights unlit</option>
+			        <option value="6">6 : Darkness - no lighting</option>
+			      </select>
+                </div>
+
+                <div class="form-input">
+                    <label for="Road_Surface_Conditions">Road Surface Conditions</label>
+
+                    <select class="form-control" name="Road_Surface_Conditions" id="roadsc">
+                        <option value="1">1 : Dry</option>
+                        <option value="2">2 : Wet or damp</option>
+                        <option value="3">3 : Snow</option>
+                        <option value="4">4 : Frost or Ice</option>
+                        <option value="5">5 : Flood</option>
+                        <option value="7">7 : Mud</option>
+                    </select>
+                </div>
+
+                <div class="form-input">
+                    <label for="Gender">Gender</label>
+                    <select class="form-control" name="Gender" id="gender">
+                        <option value="1">1 : Male</option>
+                        <option value="2">2 : Female</option>
+                        <option value="3">3 : Unknown</option>
+                    </select>
+                </div>
+
+                <div class="form-input">
+                    <label for="Speed_limit">Speed Limit</label>
+			        <input type="text" class="form-control" type="text" name="Speed_limit" value="30" id="speedl">
+                </div>
+              <!-- Repeat the above structure for the remaining input fields -->
+              <button type="submit">Predict</button>
+            </form>
+            <div>
+                1 = SLIGHT<br>
+                2 = SERIOUS<br>
+                3 = FATAL <br>
+          </div>
+            <div>
+                <p id="output-text">Output: <span id="result"></span></p>
+              </div>
+          </div>
+          <p style="background-image: url('aci.jpg')">
+          </div>
+        </div>
+      </div>
+      <script>
+        // Function to handle form submission
+        async function handleSubmit(event) {
+          event.preventDefault();
+      
+          // Get form data
+          const formData = {
+            Did_Police_Officer_Attend_Scene_of_Accident: document.getElementById('Did_Police_Officer_Attend').value,
+            Age_of_Driver: document.getElementById('age_of_driver').value,
+            Vehicle_Type: document.getElementById('vehicle_type').value,
+            Age_of_Vehicle: document.getElementById('age_of_vehicle').value,
+            Engine_Capacity: document.getElementById('engine_cc').value,
+            Day_of_Week: document.getElementById('day').value,
+            Weather_Conditions: document.getElementById('weather').value,
+            Road_Surface_Conditions: document.getElementById('roadsc').value,
+            Light_Conditions: document.getElementById('light').value,
+            Sex_of_Driver: document.getElementById('gender').value,
+            Speed_limit: document.getElementById('speedl').value,
+            // Repeat the above for other form fields
+          };
+          try {
+            const response = await fetch('http://127.0.0.1:5000/api/accident_pred', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(formData)
+            });
+      
+            if (!response.ok) {
+              throw new Error('Failed to submit form');
+            }
+      
+            const data = await response.json();
+            document.getElementById("result").innerHTML = data.result;
+            
+            // Handle the response data as needed
+            console.log(data);
+          } catch (error) {
+            // Handle errors
+            console.error('Error submitting form:', error);
+          }
+        }
+      
+        // Add event listener to the form element
+        document.querySelector('.Accident-form').addEventListener('submit', handleSubmit);
+      </script>
+      
+      
+</body>
+</html>

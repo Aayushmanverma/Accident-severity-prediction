@@ -1,0 +1,92 @@
+.Accident-form {
+    width: 100%;
+  }
+  
+  .form-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .form-input label {
+    margin-right: 10px; /* Adjust spacing between label and input */
+  }
+  
+  .form-input input,
+  .form-input select {
+    width: 150px; /* Set a fixed width for all input and select boxes */
+  }
+  
+  html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  height: 100%;
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.scrollable-container {
+  min-height: 100%; /* Set a minimum height to ensure content fills the viewport */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.Accident-form-container {
+  width: 80%; /* Adjust width as needed */
+  max-width: 1200px; /* Add a max-width to prevent the form from becoming too wide */
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.form-container {
+  width: 40%;
+  background-color: black;
+  color: bisque;
+  margin: 80px;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.Accident-image-container {
+  width: 40%;
+  position:relative;
+}
+
+.Accident-image {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  margin-top: 50%;
+}
+
+/* Add these styles to your CSS file */
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color:rgb(185, 131, 64);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: rgba(154, 94, 21, 0.724);
+  }
+  
+  .input-from-text{
+    text-align: center;
+    font-size:xx-large;
+    margin-bottom: 25px;
+  }
